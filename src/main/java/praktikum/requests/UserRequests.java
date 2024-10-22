@@ -136,10 +136,11 @@ public class UserRequests extends ApiUri{
 
     // Удаление пользователя
     @Step("Отправить запрос на удаление пользователя")
-    public Response deleteUser(User user) {
-        return given().log().all()
-                .contentType(ContentType.JSON)
-                .body(user)
-                .delete(DELETE_USER_PATH);
+    public void deleteUser(User user, String accessToken) {
+        Response response = given().log().all()
+                .header("Authorization", accessToken)
+                .delete(DELETE_USER_PATH)
+                .then().log().all()
+                .extract().response();
     }
 }
