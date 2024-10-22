@@ -181,8 +181,15 @@ public class UserRegistrationTests {
 
     @After
     public void userRemoval(){
-        //Удаляем зарегистрированного пользователя
-        userRequests.deleteUser(user);
+        // Авторизуемся под пользователем для получения accessToken
+        Response response = userRequests.sendRequest(user, LOGIN_USER_PATH);
+        // Извлекаем accessToken
+        String accessToken = userRequests.extractAccessToken(response);
+        // Если accessToken не null, удаляем зарегистрированного пользователя, передавая accessToken
+        if (accessToken != null) {
+        userRequests.deleteUser(user, accessToken);
+        // Проверяем, что пользователь успешно удален
+        userRequests.checkStatusCode(response, HttpURLConnection.HTTP_OK);}
     }
 }
 
