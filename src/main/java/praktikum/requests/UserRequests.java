@@ -125,6 +125,7 @@ public class UserRequests extends ApiUri{
     }
 
     // Отправка запроса на изменение данных пользователя без accessToken в заголовке
+    @Step("Отправить запрос на изменение данных пользователя без accessToken в заголовке")
     public Response sendRequestForChangUserData(User changedUserData) {
         return given().log().all()
                 .contentType(ContentType.JSON)
