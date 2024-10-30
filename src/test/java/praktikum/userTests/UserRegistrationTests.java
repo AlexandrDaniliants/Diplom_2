@@ -40,20 +40,6 @@ public class UserRegistrationTests {
         userRequests.checkUserEmailField(response, user);
         userRequests.checkAccessTokenField(response);
         userRequests.checkRefreshTokenField(response);
-//        Response response =
-//                given().log().all()
-//                .contentType(ContentType.JSON)
-//                .body(user)
-//                .post(CREATE_USER_PATH)
-//                .then().log().all()
-//                .assertThat()
-//                .statusCode(HttpURLConnection.HTTP_OK)
-//                .body("success", equalTo(true))
-//                .body("user.email", equalTo(user.getEmail().toLowerCase()))
-//                .body("user.name", equalTo(user.getName()))
-//                .body("accessToken", notNullValue())
-//                .body("refreshToken", notNullValue())
-//                .extract().response();
     }
 
     @Test
@@ -66,17 +52,6 @@ public class UserRegistrationTests {
         userRequests.checkStatusCode(responseUniqueUser, HttpURLConnection.HTTP_OK);
         // Проверяем содержимое тела ответа
         userRequests.checkSuccessField(responseUniqueUser, true);
-//        Response createUserResponse =
-//                given().log().all()
-//                        .contentType(ContentType.JSON)
-//                        .body(user)
-//                        .when()
-//                        .post(CREATE_USER_PATH)
-//                        .then().log().all()
-//                        .assertThat()
-//                        .statusCode(HttpURLConnection.HTTP_OK)
-//                        .body("success", equalTo(true))
-//                        .extract().response();
         // Регистрируем пользователя повторно
         Response responseRepeatedUser = userRequests.sendRequest(user, CREATE_USER_PATH);
         // Проверяем статус-код
@@ -84,18 +59,6 @@ public class UserRegistrationTests {
         // Проверяем содержимое тела ответа
         userRequests.checkSuccessField(responseRepeatedUser, false);
         userRequests.checkMessageField(responseRepeatedUser, USER_ALREADY_EXISTS_MESSAGE);
-//        Response response =
-//                given().log().all()
-//                        .contentType(ContentType.JSON)
-//                        .body(user)
-//                        .when()
-//                        .post(CREATE_USER_PATH)
-//                        .then().log().all()
-//                        .assertThat()
-//                        .statusCode(HttpURLConnection.HTTP_FORBIDDEN)
-//                        .body("success", equalTo(false))
-//                        .body("message", equalTo("User already exists"))
-//                        .extract().response();
     }
 
     @Test
@@ -111,18 +74,6 @@ public class UserRegistrationTests {
         // Проверяем содержимое тела ответа
         userRequests.checkSuccessField(response, false);
         userRequests.checkMessageField(response, MISSING_REQUIRED_FIELDS_MESSAGE);
-//        Response response =
-//                given().log().all()
-//                        .contentType(ContentType.JSON)
-//                        .body(user)
-//                        .when()
-//                        .post(CREATE_USER_PATH)
-//                        .then().log().all()
-//                        .assertThat()
-//                        .statusCode(HttpURLConnection.HTTP_FORBIDDEN)
-//                        .body("success", equalTo(false))
-//                        .body("message", equalTo("Email, password and name are required fields"))
-//                        .extract().response();
     }
 
     @Test
@@ -138,18 +89,6 @@ public class UserRegistrationTests {
         // Проверяем содержимое тела ответа
         userRequests.checkSuccessField(response, false);
         userRequests.checkMessageField(response, MISSING_REQUIRED_FIELDS_MESSAGE);
-//        Response response =
-//                given().log().all()
-//                        .contentType(ContentType.JSON)
-//                        .body(user)
-//                        .when()
-//                        .post(CREATE_USER_PATH)
-//                        .then().log().all()
-//                        .assertThat()
-//                        .statusCode(HttpURLConnection.HTTP_FORBIDDEN)
-//                        .body("success", equalTo(false))
-//                        .body("message", equalTo("Email, password and name are required fields"))
-//                        .extract().response();
     }
 
     @Test
@@ -165,18 +104,6 @@ public class UserRegistrationTests {
         // Проверяем содержимое тела ответа
         userRequests.checkSuccessField(response, false);
         userRequests.checkMessageField(response, MISSING_REQUIRED_FIELDS_MESSAGE);
-//        Response response =
-//                given().log().all()
-//                        .contentType(ContentType.JSON)
-//                        .body(user)
-//                        .when()
-//                        .post(CREATE_USER_PATH)
-//                        .then().log().all()
-//                        .assertThat()
-//                        .statusCode(HttpURLConnection.HTTP_FORBIDDEN)
-//                        .body("success", equalTo(false))
-//                        .body("message", equalTo("Email, password and name are required fields"))
-//                        .extract().response();
     }
 
     @After
