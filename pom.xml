@@ -125,12 +125,6 @@
             <artifactId>rest-assured</artifactId>
             <version>5.2.0</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>junit</groupId>-->
-<!--            <artifactId>junit</artifactId>-->
-<!--            <version>4.13.1</version>-->
-<!--            &lt;!&ndash; <scope>test</scope> &ndash;&gt;-->
-<!--        </dependency>-->
     </dependencies>
 
 </project>
