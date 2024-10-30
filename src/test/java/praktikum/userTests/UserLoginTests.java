@@ -43,18 +43,6 @@ public class UserLoginTests {
         userRequests.checkUserEmailField(response, user);
         userRequests.checkAccessTokenField(response);
         userRequests.checkRefreshTokenField(response);
-//                Response response = given().log().all()
-//                .contentType(ContentType.JSON)
-//                .body(user)
-//                .post(LOGIN_USER_PATH)
-//                .then().log().all()
-//                .statusCode(HttpURLConnection.HTTP_OK)
-//                .body("success", equalTo(true))
-//                .body("accessToken", notNullValue())
-//                .body("refreshToken", notNullValue())
-//                .body("user.email", equalToIgnoringCase(user.getEmail()))
-//                .body("user.name", equalTo(user.getName()))
-//                .extract().response();
     }
 
     @Test
@@ -70,15 +58,6 @@ public class UserLoginTests {
         // Проверяем содержимое тела ответа
         userRequests.checkSuccessField(response, false);
         userRequests.checkMessageField(response, INCORRECT_EMAIL_OR_PASSWORD_MESSAGE);
-//                Response response = given().log().all()
-//                .contentType(ContentType.JSON)
-//                .body(incorrectUser)
-//                .post(LOGIN_USER_PATH)
-//                .then().log().all()
-//                .statusCode(HttpURLConnection.HTTP_UNAUTHORIZED)
-//                .body("success", equalTo(false))
-//                .body("message", equalTo(INCORRECT_EMAIL_OR_PASSWORD_MESSAGE))
-//                .extract().response();
     }
 
     @Test
@@ -95,15 +74,6 @@ public class UserLoginTests {
         // Проверяем содержимое тела ответа
         userRequests.checkSuccessField(response, false);
         userRequests.checkMessageField(response, INCORRECT_EMAIL_OR_PASSWORD_MESSAGE);
-//        Response response = given().log().all()
-//                .contentType(ContentType.JSON)
-//                .body(incorrectUser)
-//                .post(LOGIN_USER_PATH)
-//                .then().log().all()
-//                .statusCode(HttpURLConnection.HTTP_UNAUTHORIZED)
-//                .body("success", equalTo(false))
-//                .body("message", equalTo(INCORRECT_EMAIL_OR_PASSWORD_MESSAGE))
-//                .extract().response();
     }
 
     @Test
@@ -124,27 +94,6 @@ public class UserLoginTests {
         userRequests.checkSuccessField(response, true);
         userRequests.checkUserNameField(responseChangeData, changedUserName);
         userRequests.checkUserEmailField(response, user);
-//        String accessToken = given().log().all()
-//                .contentType(ContentType.JSON)
-//                .body(user)
-//                .post(LOGIN_USER_PATH)
-//                .then().log().all()
-//                .extract().path("accessToken");
-
-//        // Изменяем имя пользователя
-//        user.setName("New" + UserRandomData.userRandomName());
-
-//        Response response = given().log().all()
-//                .contentType(ContentType.JSON)
-//                .header("Authorization", accessToken)
-//                .body(user)
-//                .patch("/api/auth/user")
-//                .then().log().all()
-//                .statusCode(HttpURLConnection.HTTP_OK)
-//                .body("success", equalTo(true))
-//                .body("user.name", equalTo(user.getName()))
-//                .body("user.email", equalToIgnoringCase(user.getEmail()))
-//                .extract().response();
     }
 
     @Test
@@ -165,27 +114,6 @@ public class UserLoginTests {
         userRequests.checkSuccessField(response, true);
         userRequests.checkUserNameField(response, user);
         userRequests.checkUserEmailField(responseChangeData, changedUserEmail);
-//        String accessToken = given().log().all()
-//                .contentType(ContentType.JSON)
-//                .body(user)
-//                .post(LOGIN_USER_PATH)
-//                .then().log().all()
-//                .extract().path("accessToken");
-//
-//        // Изменяем Email пользователя
-//        user.setEmail("New" + UserRandomData.userRandomEmail());
-//
-//        Response response = given().log().all()
-//                .contentType(ContentType.JSON)
-//                .header("Authorization", accessToken)
-//                .body(user)
-//                .patch(CHANGE_USER_DATA_PATH)
-//                .then().log().all()
-//                .statusCode(HttpURLConnection.HTTP_OK)
-//                .body("success", equalTo(true))
-//                .body("user.name", equalTo(user.getName()))
-//                .body("user.email", equalToIgnoringCase(user.getEmail()))
-//                .extract().response();
     }
 
     @Test
@@ -201,17 +129,6 @@ public class UserLoginTests {
         // Проверяем содержимое тела ответа
         userRequests.checkSuccessField(response, false);
         userRequests.checkMessageField(response, YOU_SHOULD_BE_AUTHORIZED_MESSAGE);
-//        user.setName("New" + UserRandomData.userRandomName());
-//
-//        Response response = given().log().all()
-//                .contentType(ContentType.JSON)
-//                .body(user)
-//                .patch(CHANGE_USER_DATA_PATH)
-//                .then().log().all()
-//                .statusCode(HttpURLConnection.HTTP_UNAUTHORIZED)
-//                .body("success", equalTo(false))
-//                .body("message", equalTo(YOU_SHOULD_BE_AUTHORIZED_MESSAGE))
-//                .extract().response();
     }
 
     @Test
@@ -227,17 +144,6 @@ public class UserLoginTests {
         // Проверяем содержимое тела ответа
         userRequests.checkSuccessField(response, false);
         userRequests.checkMessageField(response, YOU_SHOULD_BE_AUTHORIZED_MESSAGE);
-//        user.setEmail("New" + UserRandomData.userRandomEmail());
-//
-//        Response response = given().log().all()
-//                .contentType(ContentType.JSON)
-//                .body(user)
-//                .patch(CHANGE_USER_DATA_PATH)
-//                .then().log().all()
-//                .statusCode(HttpURLConnection.HTTP_UNAUTHORIZED)
-//                .body("success", equalTo(false))
-//                .body("message", equalTo(YOU_SHOULD_BE_AUTHORIZED_MESSAGE))
-//                .extract().response();
     }
 
     @Test
